@@ -2,9 +2,10 @@ package model
 
 import (
 	"fmt"
-	"github.com/kubernetes-incubator/kube-aws/pkg/api"
 	"sort"
 	"strings"
+
+	"github.com/kubernetes-incubator/kube-aws/pkg/api"
 )
 
 // APIEndpoints is a set of API endpoints associated to a Kubernetes cluster
@@ -125,13 +126,15 @@ func (e APIEndpoints) ManagedELBLogicalNames() []string {
 // GetDefault returns the default API endpoint identified by its name.
 // The name is defined as DefaultAPIEndpointName
 func (e APIEndpoints) GetDefault() APIEndpoint {
-	if len(e) != 1 {
-		panic(fmt.Sprintf("[bug] GetDefault invoked with an unexpected number of API endpoints: %d", len(e)))
-	}
+	//if len(e) != 1 {
+	//panic(fmt.Sprintf("[bug] GetDefault invoked with an unexpected number of API endpoints: %d", len(e)))
+	//}
 	var name string
 	for n, _ := range e {
-		name = n
-		break
+		if n == "default" {
+			name = n
+			break
+		}
 	}
 	return e[name]
 }
