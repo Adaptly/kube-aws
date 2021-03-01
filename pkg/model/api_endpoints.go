@@ -131,7 +131,7 @@ func (e APIEndpoints) GetDefault() APIEndpoint {
 	//}
 	var name string
 	for n, _ := range e {
-		if name == "default" {
+		if n == "default" {
 			name = n
 			break
 		}

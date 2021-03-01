@@ -22,3 +22,4 @@ _book
 node_modules
 kube-aws
 .DS_Store
+tags
